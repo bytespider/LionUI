@@ -71,8 +71,8 @@ body.inactive {
 
 #window-controls {
 	display: -webkit-box;
-	 margin-right: 7px;
-	 width:auto;
+	margin-right: 7px;
+	width: 1%;
 }
 
 #window-controls .control {
