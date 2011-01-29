@@ -26,7 +26,7 @@
     resizeHandle.addEventListener('mousedown', function (e){
 	    var wnd = Titanium.UI.currentWindow;
         var mousePosition = {x:event.clientX, y:event.clientY};
-        var windowSize = {width:wnd.getX(), height:wnd.getY()};
+        var windowSize = {width:wnd.getWidth(), height:wnd.getHeight()};
 
         document.addEventListener('mousemove', resize, false);
         document.addEventListener('mouseup', function (e){
@@ -38,11 +38,12 @@
         function resize(event) {
             var wnd = Titanium.UI.currentWindow;
 			
-            var width = windowSize.width + event.clientX - mousePosition.x;
-            var height = windowSize.height + event.clientY - mousePosition.y;
+			var bounds = wnd.getBounds();
+            bounds.width = windowSize.width + event.clientX - mousePosition.x;
+            bounds.height = windowSize.height + event.clientY - mousePosition.y;
             
-            wnd.setWidth(width);
-            wnd.setHeight(height);
+            wnd.setBounds(bounds);
+            
         }
     }, false);
 
